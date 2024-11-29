@@ -1,44 +1,51 @@
-// initialoze conters fot wins, losses, and ties 
+// Initialize counters for wins, losses, and ties
 let wins = 0;
 let losses = 0;
-let ties = o;
+let ties = 0;
 
-// funcation to get the game runing 
-function starGame() {
-    const choies = ["R", "P", "S"];
-    const randomIndex = Math.floor(Math.random() * choies.length);
-    return choies[randomIndex];
+// Function to randomly select the computer's choice
+function startGame() {
+    const choices = ["R", "P", "S"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
 }
 
-// funcation to pkay a single round of the game 
+// Function to play a single round of the game
 function playGame(userChoice) {
-    const computerChoice = starGame();
+    const computerChoice = startGame();
     let resultMessage = "";
 
-    // Determine the result 
+    // Determine the result
     if (userChoice === computerChoice) {
-        resultMessage = "It's a tie! Both chose ${convertChice(userChoice)}.";
+        resultMessage = `It's a tie! Both chose ${convertChoice(userChoice)}.`;
         ties++;
-        { else if (
-            (userChoice === "R" && computerChoice === "S") ||
-            (userChoice === "S" && computerChoice === "R") ||
-            (userChoice === "P" && computerChoice === "P")
-        ) {
-            resultMessage = "You win this round!${convertChoice(userChoice)} beat ${convertChoice(computerChoice)}.";
-            wins++;
-        } else
-        resultMessage = "You lose this round!${convertChoice(computerChoicee)} beat ${convertChoice(userChoice)}.";
-            losses++;
-        }
-        
-        // Helper function to convert choice to readable format 
-        function convertChoice(choice) {
-            switch (choice) {
-                case "R":
-                    return "Rock";
-                case "P":
-                    return "Paper";
-                case "S":
-                    return "Scissors";
-            }
-        }
+    } else if (
+        (userChoice === "R" && computerChoice === "S") ||
+        (userChoice === "S" && computerChoice === "P") ||
+        (userChoice === "P" && computerChoice === "R")
+    ) {
+        resultMessage = `You win this round! ${convertChoice(userChoice)} beats ${convertChoice(computerChoice)}.`;
+        wins++;
+    } else {
+        resultMessage = `You lose this round! ${convertChoice(computerChoice)} beats ${convertChoice(userChoice)}.`;
+        losses++;
+    }
+
+    // Update the DOM with results and scores
+    document.getElementById("results").textContent = resultMessage;
+    document.getElementById("wins").textContent = wins;
+    document.getElementById("losses").textContent = losses;
+    document.getElementById("ties").textContent = ties;
+}
+
+// Helper function to convert choice to a readable format
+function convertChoice(choice) {
+    switch (choice) {
+        case "R":
+            return "Rock";
+        case "P":
+            return "Paper";
+        case "S":
+            return "Scissors";
+    }
+}
