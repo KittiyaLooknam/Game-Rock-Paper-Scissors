@@ -17,17 +17,17 @@ function playGame(userChoice) {
 
     // Determine the result
     if (userChoice === computerChoice) {
-        resultMessage = `It's a tie! Both chose ${convertChoice(userChoice)}.`;
+        resultMessage = `It's a tie! 😄 Both chose ${convertChoice(userChoice)}.`;
         ties++;
     } else if (
         (userChoice === "R" && computerChoice === "S") ||
         (userChoice === "S" && computerChoice === "P") ||
         (userChoice === "P" && computerChoice === "R")
     ) {
-        resultMessage = `You win this round! ${convertChoice(userChoice)} beats ${convertChoice(computerChoice)}.`;
+        resultMessage = `You win  🎉 this round! ${convertChoice(userChoice)} beats ${convertChoice(computerChoice)}.`;
         wins++;
     } else {
-        resultMessage = `You lose this round! ${convertChoice(computerChoice)} beats ${convertChoice(userChoice)}.`;
+        resultMessage = `You lose  😢 this round! ${convertChoice(computerChoice)} beats ${convertChoice(userChoice)}.`;
         losses++;
     }
 
@@ -36,16 +36,32 @@ function playGame(userChoice) {
     document.getElementById("wins").textContent = wins;
     document.getElementById("losses").textContent = losses;
     document.getElementById("ties").textContent = ties;
+    
 }
 
 // Helper function to convert choice to a readable format
 function convertChoice(choice) {
     switch (choice) {
         case "R":
-            return "Rock";
+            return "✊";
         case "P":
-            return "Paper";
+            return "✋";
         case "S":
-            return "Scissors";
+            return "✌";
     }
+}
+
+// Funcation reset the game
+function StartOver() {
+    // Reset the counters
+    wins = 0;
+    losses = 0;
+    ties = 0;
+
+    // Update the DOM
+    document.getElementById("wins").textContent = wins;
+    document.getElementById("losses").textContent = losses;
+    document.getElementById("ties").textContent = ties;
+    document.getElementById("results").textContent = "Game reset! Play again!";
+    
 }
