@@ -32,12 +32,9 @@
 
  ## Demo play Game
 
- ![image](https://github.com/user-attachments/assets/648b8601-3f95-4d7f-abab-9883c5a92213)
+![image](https://github.com/user-attachments/assets/3b7c8610-9fb3-4c35-a13a-aaf19e59ac8c)
 
-
-![image](https://github.com/user-attachments/assets/2e68be86-e9e4-4833-a4af-ba3d6238fad0)
-
-![image](https://github.com/user-attachments/assets/307c8bd2-4bf8-4a1d-89a6-edd9539e29e1)
+![image](https://github.com/user-attachments/assets/572fda56-e9f9-44e6-ba99-01c7c460fb0b)
 
 
 
